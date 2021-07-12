@@ -1,20 +1,22 @@
 <template>
 <div>
-  <Search @searchN="a"/>
-  <ul>
-      <li v-for="(item, index) in filmResults" :key="index">{{item.title}}</li>
-  </ul>
-
+  <Search @searchN="getFilms"/>
+  <div class="cards-box">
+    <Card v-for="(item, index) in filmResults" :key="index" :det="item"/>
+  </div>
+ 
 </div>
 </template>
 
 <script>
 import axios from 'axios'
 import Search from "@/components/Search";
+import Card from "@/components/Card";
 export default {
     name: 'Main',
     components: {
         Search,
+        Card,
     },
 
     data(){
@@ -26,14 +28,11 @@ export default {
         }
     },
 
-    created() {
-    
-    //    this.getFilms()
-    },
+    methods: {       
 
-    computed : {
-        getFilms(){
-            if (this.searchValue) {
+        getFilms( searchValue ){
+            if ( searchValue) {
+                this.searchValue = searchValue
                 axios
                     .get(this.apiBase+'search/movie', {
                         params:{
@@ -56,14 +55,6 @@ export default {
                   
             } 
         },
-    },
-
-    methods: {
-        a(Input){
-            this.searchValue =Input;
-        },
-
-       
   }
 }
 
@@ -72,6 +63,7 @@ export default {
 
 </script>
 
-<style>
-
+<style lang= 'scss'>
+    /* .cards-box{
+    } */
 </style>

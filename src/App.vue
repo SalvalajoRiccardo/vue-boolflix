@@ -18,7 +18,5 @@ export default {
 </script>
 
 <style lang="scss">
-// #app {
- 
-// }
+@import '@/style/commons.scss';
 </style>
