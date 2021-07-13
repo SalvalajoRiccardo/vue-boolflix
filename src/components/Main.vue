@@ -2,7 +2,11 @@
 <div>
   <Search @searchN="getFilms"/>
   <div class="cards-box">
-    <Card v-for="(item, index) in filmResults" :key="index" :det="item"/>
+     <h2>Films</h2>
+     <Card v-for="(item, index) in filmResults" :key="index" :det="item"/>
+  </div>
+  <div>
+      <h2>TV Series</h2>
   </div>
  
 </div>
@@ -32,7 +36,8 @@ export default {
 
         getFilms( searchValue ){
             if ( searchValue) {
-                this.searchValue = searchValue
+                this.searchValue = searchValue;
+                this.filmResults = '';
                 axios
                     .get(this.apiBase+'search/movie', {
                         params:{
