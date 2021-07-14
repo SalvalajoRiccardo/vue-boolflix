@@ -1,13 +1,18 @@
 <template>
   <div class="card">
+      <div class="img-box">
         <img v-if="det.poster_path" :src="'https://image.tmdb.org/t/p/w342/'+det.poster_path" :alt="det.title">
-        <h3>{{det.title}}</h3>
-        <span>{{det.original_title}}</span>
+      </div>
+
+      <div class="info-box">
+        <h3>{{det.title == null ? det.name : det.title}}</h3>
+        <span>{{det.original_title == null ? det.original_name : det.title}}</span>
         <p>Language:  
           <img v-if="flagsArray.includes(det.original_language)" class="flag" :src="require('../assets/img/'+det.original_language+'.png')" :alt="det.original_language">
           <span v-else>{{det.original_language}}</span>
         </p> 
         <span>Vote: <i v-for="(star,index) in stars(det.vote_average)" :key="index"  class="fas fa-star yellow-star"></i> </span>
+      </div>
   </div>
 </template>
 

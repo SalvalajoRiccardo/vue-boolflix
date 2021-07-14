@@ -5,9 +5,9 @@
      <h2>Films</h2>
      <Card v-for="(item, index) in filmResults" :key="index" :det="item"/>
   </div>
-  <div>
+  <div class="cards-box">
       <h2>TV Series</h2>
-      <CardTv v-for="(item, index) in tvResults" :key="index" :detTv="item"/>
+      <Card v-for="(item, index) in tvResults" :key="index" :det="item"/>
   </div>
  
 </div>
@@ -17,13 +17,11 @@
 import axios from 'axios'
 import Search from "@/components/Search";
 import Card from "@/components/Card";
-import CardTv from "@/components/CardTv";
 export default {
     name: 'Main',
     components: {
         Search,
         Card,
-        CardTv,
     },
 
     data(){
