@@ -1,7 +1,9 @@
 <template>
-  <div id="app">
-    <Main/>
-  </div>
+  <body>
+    <div id="app">
+      <Main/>
+    </div>
+  </body>
 </template>
 
 <script>
@@ -19,4 +21,7 @@ export default {
 
 <style lang="scss">
 @import '@/style/commons.scss';
+body {
+  background-color: #141414;
+}
 </style>

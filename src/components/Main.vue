@@ -1,12 +1,16 @@
 <template>
-<div>
+<div class="container">
   <Search @searchN="getFilms"/>
-  <div class="cards-box">
-     <h2>Films</h2>
-     <Card v-for="(item, index) in filmResults" :key="index" :det="item"/>
+  <div class="row">
+      <div class="col-12"><h2>Films</h2></div>
   </div>
-  <div class="cards-box">
-      <h2>TV Series</h2>
+  <div class="row cards-row">
+        <Card v-for="(item, index) in filmResults" :key="index" :det="item"/>
+  </div>
+  <div class="row">
+      <div class="col-12"><h2>TV Series</h2></div>
+  </div>
+  <div class="row cards-row">
       <Card v-for="(item, index) in tvResults" :key="index" :det="item"/>
   </div>
  
@@ -91,7 +95,15 @@ export default {
 
 </script>
 
-<style lang= 'scss'>
-    /* .cards-box{
-    } */
+<style lang="scss" scoped>
+.container {
+        margin-top: 100px;
+        h2 {
+            color: white;
+        }
+        .cards-row{
+            overflow-x: scroll;
+            flex-wrap: nowrap;
+        }
+    }
 </style>
